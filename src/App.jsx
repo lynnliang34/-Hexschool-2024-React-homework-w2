@@ -13,13 +13,17 @@ function App() {
       ...account,
       [name]: value,
     });
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
     console.log(account);
   };
 
   return (
     <div className="d-flex flex-column justify-content-center align-items-center vh-100">
       <h1 className="mb-5">請先登入</h1>
-      <form className="d-flex flex-column gap-3">
+      <form onSubmit={handleLogin} className="d-flex flex-column gap-3">
         <div className="form-floating mb-3">
           <input
             name="username"
