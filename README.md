@@ -107,3 +107,20 @@ import.meta.env.VITE_BASE_URL
 ```
 document.cookie = `hexToken=xxxxxx; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
 ```
+
+<br>
+<hr>
+<br>
+
+## 產品頁面（後台）
+
+### 串接 API - 取得產品資料
+
+1. 進到頁面後就戳 API
+2. 整合第一週的模板
+
+**token 怎麼帶？**
+
+```
+axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
+```
