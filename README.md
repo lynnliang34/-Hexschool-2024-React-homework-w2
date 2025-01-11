@@ -124,3 +124,12 @@ document.cookie = `hexToken=xxxxxx; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
 ```
 axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 ```
+
+<br>
+<hr>
+<br>
+
+### 串接 API - 驗證登入
+
+1. 進到後台頁面後，可以透過點擊按鈕的方式戳 API 來驗證使用者是否登入過
+2. 若未登入過則跳轉到登入頁面（登入過的使用者 cookie 會存 token）

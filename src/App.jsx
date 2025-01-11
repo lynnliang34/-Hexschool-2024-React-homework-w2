@@ -1,6 +1,9 @@
 import axios from "axios";
 import { useState } from "react";
 
+const BASE_URL = import.meta.env.VITE_BASE_URL;
+const API_PATH = import.meta.env.VITE_API_PATH;
+
 function App() {
   const [isLogin, setIsLogin] = useState(false);
 
@@ -24,7 +27,7 @@ function App() {
   const handleLogin = (e) => {
     e.preventDefault();
     axios
-      .post(`${import.meta.env.VITE_BASE_URL}/admin/signin`, account)
+      .post(`${BASE_URL}/admin/signin`, account)
       .then((res) => {
         const { token, expired } = res.data;
 
@@ -32,23 +35,34 @@ function App() {
         axios.defaults.headers.common["Authorization"] = token;
 
         axios
-          .get(
-            `${import.meta.env.VITE_BASE_URL}/api/${
-              import.meta.env.VITE_API_PATH
-            }/admin/products`
-          )
+          .get(`${BASE_URL}/api/${API_PATH}/admin/products`)
           .then((res) => setProductList(res.data.products))
-          .catch((error) => console.log(error));
+          .catch((error) => console.error(error));
 
         setIsLogin(true);
       })
       .catch((error) => alert("登入失敗"));
   };
 
+  const checkIsLogin = () => {
+    axios
+      .post(`${BASE_URL}/api/user/check`)
+      .then((res) => alert(`使用者已登入`))
+      .catch((error) => console.error(error));
+  };
+
   return (
     <>
       {isLogin ? (
         <div className="container mt-5">
+          <button
+            type="button"
+            onClick={checkIsLogin}
+            className="btn btn-success "
+          >
+            檢查是否登入
+          </button>
+          <hr />
           <div className="row row-cols-2">
             <div className="col">
               <h2 className="fw-bold">產品列表</h2>
