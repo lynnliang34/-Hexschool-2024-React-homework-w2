@@ -17,7 +17,8 @@ function App() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log(account);
+    console.log(import.meta.env.VITE_BASE_URL);
+    console.log(import.meta.env.VITE_API_PATH);
   };
 
   return (

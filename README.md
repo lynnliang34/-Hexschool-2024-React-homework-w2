@@ -63,3 +63,23 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // 引入 CSS
 2. 撰寫 onSubmit 要觸發的函式（拿到 account 並戳登入 API）
 
 NOTE：透過表單觸發 submit 事件要記得使用 `event.preventDefault()` 取消 form 表單的預設行為
+
+<br>
+<hr>
+<br>
+
+## 串 API
+
+### 在 .env 檔設定環境變數
+
+1. 在根目錄下新增 .env
+2. 設定兩個環境變數：
+
+- VITE_BASE_URL
+- VITE_API_PATH
+
+```
+VITE_BASE_URL=https://ec-course-api.hexschool.io
+```
+
+NOTE：Vite 環境變數需以 VITE\_ 開頭命名
