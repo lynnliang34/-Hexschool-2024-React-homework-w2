@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 
 function App() {
@@ -17,8 +18,10 @@ function App() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log(import.meta.env.VITE_BASE_URL);
-    console.log(import.meta.env.VITE_API_PATH);
+    axios
+      .post(`${import.meta.env.VITE_BASE_URL}/admin/signin`, account)
+      .then((res) => console.log(res))
+      .catch((error) => alert("登入失敗"));
   };
 
   return (

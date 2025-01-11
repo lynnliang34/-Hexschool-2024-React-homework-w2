@@ -68,7 +68,7 @@ NOTE：透過表單觸發 submit 事件要記得使用 `event.preventDefault()` 
 <hr>
 <br>
 
-## 串 API
+## 串 API 前置作業
 
 ### 在 .env 檔設定環境變數
 
@@ -83,3 +83,9 @@ VITE_BASE_URL=https://ec-course-api.hexschool.io
 ```
 
 NOTE：Vite 環境變數需以 VITE\_ 開頭命名
+
+### 在專案中使用環境變數
+
+```
+import.meta.env.VITE_BASE_URL
+```
