@@ -99,4 +99,11 @@ import.meta.env.VITE_BASE_URL
 串接 API - 登入
 
 1. 將表單資料發送到後端（戳登入 API）
-2. 若登入成功跳轉到後台，若失敗則提示使用者登入失敗（使用三元運算子切換）
+2. 若登入成功，將 token 存進 cookie。若失敗則提示使用者登入失敗
+3. 登入成功後跳轉到後台（使用三元運算子切換）
+
+**如何將 token 存進 cookie？**
+
+```
+document.cookie = `hexToken=xxxxxx; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+```

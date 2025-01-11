@@ -22,7 +22,12 @@ function App() {
     e.preventDefault();
     axios
       .post(`${import.meta.env.VITE_BASE_URL}/admin/signin`, account)
-      .then((res) => setIsLogin(true))
+      .then((res) => {
+        const { token, expired } = res.data;
+        document.cookie = `hexToken=${token}; expires=${new Date(expired)}`;
+
+        setIsLogin(true);
+      })
       .catch((error) => alert("登入失敗"));
   };
 
